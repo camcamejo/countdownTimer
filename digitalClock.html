@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JS-Digital Clock</title>
+    <style type="text/css">
+        body {
+            background: transparent;
+            font-family: sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-weight: normal;
+            font-size: 60px;
+            margin: -150px;
+        }
+
+        .countdown {
+            display: flex;
+            transform: scale(2);
+        }
+
+        .time {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .clock {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            color: #fff;
+            font-size: 80px;
+            border: 1px solid #ccc;
+            padding: 0px 5px 0px 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="countdown" class="countdown">
+        <div class="time">
+            <h2 id="days"></h2>
+            <small>Days</small>
+        </div>
+
+        <div class="time">
+            <h2 id="hours"></h2>
+            <small>Hours</small>
+        </div>
+
+        <div class="time">
+            <h2 id="minutes"></h2>
+            <small>Minutes</small>
+        </div>
+
+        <div class="time">
+            <h2 id="seconds"></h2>
+            <small>Seconds</small>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        const days = document.getElementById("days");
+        const hours = document.getElementById("hours");
+        const minutes = document.getElementById("minutes");
+        const seconds = document.getElementById("seconds");
+
+        const targetTime = new Date('June 16 2022');
+
+        function updateCountdown() {
+            const currentTime = new Date();
+            const diff = targetTime - currentTime;
+
+            const d = Math.floor(diff / 1000 / 60 / 60 / 24);
+            const h = Math.floor(diff / 1000 / 60 / 60) % 24;
+            const m = Math.floor(diff / 1000 / 60) % 60;
+            const s = Math.floor(diff / 1000) % 60;
+
+            days.innerHTML = d;
+            hours.innerHTML = h < 10 ? '0' + h : h;
+            minutes.innerHTML = m < 10 ? '0' + m : m;
+            seconds.innerHTML = s < 10 ? '0' + s : s;
+        }
+
+        setInterval(updateCountdown, 1000);
+
+        function showTime() {
+            var date = new Date();
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+            var session = "AM";
+
+            if (h == 0) {
+                h = 12;
+            }
+
+            if (h > 12) {
+                h = h - 12;
+                session = "PM";
+            }
+
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+
+            var time = h + ":" + m + ":" + s + " " + session;
+            document.getElementById("MyClockDisplay").innerText = time;
+            document.getElementById("MyClockDisplay").textContent = time;
+
+            setTimeout(showTime, 1000);
+        }
+
+        showTime();
+
+    </script>
+</body>
+
+</html>
