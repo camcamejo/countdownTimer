@@ -4,13 +4,15 @@
 <head>
     <title>JS-Digital Clock</title>
     <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
         * {
             box-sizing: border-box;
         }
 
         body {
             background: transparent;
-            font-family: sans-serif;
+            font-family: 'Roboto', sans-serif;
             height: 100vh;
             display: flex;
             align-items: center;
@@ -41,10 +43,14 @@
         }
 
         .time h2 {
-            font-weight: bold;
+            font-weight: normal;
             font-size: 36px;
             line-height: 1;
             margin: 0 0 5px;
+        }
+
+        h3 {
+            padding: 10px 10px;
         }
 
         @media(max-width: 500px) {
@@ -65,17 +71,6 @@
             }
 
             ;
-        }
-
-        .clock {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translateX(-50%) translateY(-50%);
-            color: #fff;
-            font-size: 80px;
-            border: 1px solid #ccc;
-            padding: 0px 5px 0px 5px;
         }
     </style>
 </head>
@@ -101,6 +96,10 @@
             <h2 id="seconds"></h2>
             <small>Seconds</small>
         </div>
+
+    </div>
+    <div class="date">
+        <h3>June 16, 2022</h3>
     </div>
     <script type="text/javascript">
 
@@ -109,7 +108,7 @@
         const minutes = document.getElementById("minutes");
         const seconds = document.getElementById("seconds");
 
-        const targetTime = new Date('June 16 2022');
+        const targetTime = new Date('June 16 2022 18:00:00');
 
         function updateCountdown() {
             const currentTime = new Date();
@@ -127,35 +126,6 @@
         }
 
         setInterval(updateCountdown, 1000);
-
-        function showTime() {
-            var date = new Date();
-            var h = date.getHours();
-            var m = date.getMinutes();
-            var s = date.getSeconds();
-            var session = "AM";
-
-            if (h == 0) {
-                h = 12;
-            }
-
-            if (h > 12) {
-                h = h - 12;
-                session = "PM";
-            }
-
-            h = (h < 10) ? "0" + h : h;
-            m = (m < 10) ? "0" + m : m;
-            s = (s < 10) ? "0" + s : s;
-
-            var time = h + ":" + m + ":" + s + " " + session;
-            document.getElementById("MyClockDisplay").innerText = time;
-            document.getElementById("MyClockDisplay").textContent = time;
-
-            setTimeout(showTime, 1000);
-        }
-
-        showTime();
 
     </script>
 </body>
