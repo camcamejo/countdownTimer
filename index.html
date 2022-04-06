@@ -13,14 +13,17 @@
         body {
             background: transparent;
             font-family: 'Montserrat', sans-serif;
-            height: 160vh;
+            height: 170vh;
             display: flex;
             align-items: center;
+            align-self: flex-end;
             flex-direction: column;
             justify-content: center;
             text-align: center;
             margin: 0;
             overflow: hidden;
+            /* position: absolute; */
+            bottom: 0;
         }
 
         h1 {
@@ -80,12 +83,12 @@
             }
 
             .time h2 {
-                font-size: 12px;
+                font-size: 30px;
                 color: #085257;
             }
 
             .time small {
-                font-size: 10px;
+                font-size: 8px;
                 color: #085257;
             }
 
@@ -98,22 +101,22 @@
     <div id="countdown" class="countdown">
         <div class="time">
             <h2 id="days"></h2>
-            <small>DAYS</small>
+            <small>Days</small>
         </div>
 
         <div class="time">
             <h2 id="hours"></h2>
-            <small>HOURS</small>
+            <small>Hours</small>
         </div>
 
         <div class="time">
             <h2 id="minutes"></h2>
-            <small>MINUTES</small>
+            <small>Minutes</small>
         </div>
 
         <div class="time">
             <h2 id="seconds"></h2>
-            <small>SECONDS</small>
+            <small>Seconds</small>
         </div>
 
     </div>
